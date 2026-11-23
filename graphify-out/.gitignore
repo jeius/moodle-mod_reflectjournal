@@ -1,2 +1,4 @@
 # Transient graphify pipeline state — safe to delete; rebuilt on the next run.
 .graphify_*
+# Timestamp written by every graphify query/path/explain run — not worth tracking.
+cache/last_query_stamp
