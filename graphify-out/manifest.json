@@ -184,5 +184,23 @@
     "seen": 1795443991.7469947,
     "ast_hash": "17c41c06b7555cb676f1731cd70fa0d1",
     "semantic_hash": "17c41c06b7555cb676f1731cd70fa0d1"
+  },
+  "docs/adr/0006-spec-and-plan-workflow.md": {
+    "mtime": 1795444782.3197196,
+    "seen": 1795444998.623793,
+    "ast_hash": "c840ac82c5c42dc7578b117b339a7bdd",
+    "semantic_hash": "c840ac82c5c42dc7578b117b339a7bdd"
+  },
+  "docs/plans/README.md": {
+    "mtime": 1795444782.3197196,
+    "seen": 1795444998.6237948,
+    "ast_hash": "fa53c5ff9669668db212881d91fab520",
+    "semantic_hash": "fa53c5ff9669668db212881d91fab520"
+  },
+  "docs/specs/README.md": {
+    "mtime": 1795444782.3197196,
+    "seen": 1795444998.6237957,
+    "ast_hash": "efe1ba57950ff6bdc8dfd5ee4c532047",
+    "semantic_hash": "efe1ba57950ff6bdc8dfd5ee4c532047"
   }
 }
