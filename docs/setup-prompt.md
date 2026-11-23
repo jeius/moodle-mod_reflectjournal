@@ -86,7 +86,8 @@ Create docs/brief.md first and get my confirmation before expanding. Then:
   security review > M4 grading and completion > M5 events, logging, privacy
   API > M6 backup/restore > M7 PHPUnit and Behat coverage > M8 polish, seed
   script, README, screen recording. Adjust as you see fit and explain why.
-- progress.md, task-template.md, and ADRs for: Moodle version target, plugin
+- progress.md, task-template.md (since replaced by specs/ + plans/ — see
+  docs/workflow.md), and ADRs for: Moodle version target, plugin
   mounting strategy, repo layout, testing approach.
 - docs/security-checklist.md for reviewing every diff (capability checks,
   sesskey, input cleaning, output escaping, no raw SQL with user input).
@@ -114,5 +115,6 @@ mustache lint, Grunt. Include hard guardrails:
   CLI upgrade, add one passing PHPUnit test, add .github/workflows running
   moodle-plugin-ci, and make the first commit.
 - Report exactly what you verified and what you could not.
-- Then write the first two task prompts from M1 using the task template, and
-  suggest which to run first. Wait for my go-ahead.
+- Then write the first two M1 work items per the then-current workflow (task
+  prompts from the task template; superseded 2026-11-23 by specs/ + plans/ —
+  docs/workflow.md), and suggest which to run first. Wait for my go-ahead.

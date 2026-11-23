@@ -1,8 +1,27 @@
 # Reflection Journal: Plan
 
 Small milestones; every task ends with tests+lint green and `docs/progress.md` updated.
-GitHub milestones **M0–M9** mirror this file; **one PR per issue**; working loop and
-per-task prompts: `AGENTS.md` + `docs/task-template.md`.
+GitHub milestones **M0–M9** mirror this file; **one PR per issue**; workflow:
+`docs/workflow.md` (decide → spec → tickets → plan → execute → PR → merge).
+
+## Milestone entry points (workflow proposal, 2026-11-23)
+
+`/wayfinder` only where real fog exists; everything else starts with
+`/grill-with-docs` → `/to-spec`. Spec numbers are global (`specs/NNN-…`), so the
+counts below are per milestone, not file numbers.
+
+| Milestone | Entry point | Expected specs |
+|---|---|---|
+| M0 Baseline | done (no spec) | 0 |
+| M1 Skeleton activity | grill → spec | 1 |
+| M2 Data model and core interaction | grill → spec | 1 |
+| M3 Capabilities and security review | grill → spec (the capability matrix is a design decision worth pinning) | 1 |
+| M4 Grading and completion | **wayfinder** — real fog: gradebook callback semantics (none/points/scale), feedback-vs-grade split, completion interplay | 1 (the map's destination) |
+| M5 Events, logging, privacy API | grill → spec | 1 |
+| M6 Backup/restore | **wayfinder** — real fog: structure-step scope, id mapping, userdata settings | 1 |
+| M7 Coverage fill | audit-driven tickets; grill only if gaps hide design decisions | 0–1 |
+| M8 Attachments | **wayfinder** — real fog: `pluginfile()` serving permissions, privacy/backup interplay | 1 |
+| M9 Polish and release | release-checklist tickets, no spec | 0 |
 
 ## M0 — Baseline (this session)
 - [x] Docs set + ADRs 0001–0005; brief confirmed with user changes (2026-11-23)

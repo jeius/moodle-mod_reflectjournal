@@ -39,6 +39,24 @@ Create a GitHub issue.
 
 Read it as in **Read an issue** above.
 
+## Specs and plans in this repo
+
+The canonical spec is a committed file, `specs/NNN-slug.md` (conventions:
+`specs/README.md`); plans live at `plans/<issue#>-slug.md` (`plans/README.md`).
+These override the skills' publication defaults:
+
+- **"Publish the spec to the issue tracker" (`/to-spec`)**: write
+  `specs/NNN-slug.md` instead, then create a **parent issue** whose body is a
+  one-paragraph summary plus a link to the spec path — it must not duplicate the
+  spec. Apply **no** `ready-for-agent` label to the parent (that label is for
+  tickets only). The spec reaches `main` through a small docs PR before tickets
+  are cut.
+- **Publishing tickets (`/to-tickets`)**: each ticket body additionally carries a
+  `Spec: specs/NNN-slug.md` line; keep native blocked-by edges and the
+  `ready-for-agent` label as the skill prescribes.
+- **Wayfinder maps** are unchanged (section below). A map's destination is usually
+  a spec: once the route is clear, hand off to `/to-spec`.
+
 ## Wayfinding operations
 
 Used by `/wayfinder`. The **map** is a single issue with **child** issues as tickets.
