@@ -1,0 +1,13 @@
+# Moodle core checkout (dev only — see docker/README.md).
+/moodle/
+
+# Local tooling and scratch.
+/ci/
+/.scratch/
+
+# moodle-docker local customisations (live in the pinned clone).
+docker/local.yml
+
+# Editor/OS noise.
+*.swp
+.DS_Store

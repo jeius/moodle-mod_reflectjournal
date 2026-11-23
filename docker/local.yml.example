@@ -1,0 +1,18 @@
+# Copy this file into your moodle-docker clone as local.yml:
+#   cp docker/local.yml.example ~/moodle-docker/local.yml
+# The wrapper applies local.yml last (documented local-customisation hook).
+# Adjust the left-hand path below if this repo lives somewhere else.
+#
+# Moodle 5.x web root is public/ (verified: https://moodledev.io/docs/5.3/apis/plugintypes/mod),
+# so the plugin mounts at /var/www/html/public/mod/reflectjournal — see docs/adr/0004.
+#
+# The two anonymous volumes below are REQUIRED: they shadow the gitignored core
+# checkout (moodle/) and local tooling (ci/) that live inside this repo, so they
+# don't leak into Moodle's classmap inside the container (without them Behat init
+# dies with "Cannot declare interface behat_session_interface").
+services:
+  webserver:
+    volumes:
+      - "/home/jeius/moodle-demo:/var/www/html/public/mod/reflectjournal:delegated"
+      - "/var/www/html/public/mod/reflectjournal/moodle"
+      - "/var/www/html/public/mod/reflectjournal/ci"
