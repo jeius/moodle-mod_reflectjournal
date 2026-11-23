@@ -23,15 +23,14 @@ _Last updated: 2026-11-23 (M0 session + workflow restructure — `docs/workflow.
   **0 findings**. Behat init + run verified (no scenarios yet). purge_caches +
   CLI upgrade verified.
 - Workflow restructured around specs/ + plans/ (ADR-0006): `docs/task-template.md`
-  removed, `docs/workflow.md` added, AGENTS.md rewritten; the `docs/tasks/*.md`
-  prompts are superseded and kept frozen until the M1 spec replaces them.
+  and the superseded `docs/tasks/` prompts removed, `docs/workflow.md` added,
+  AGENTS.md rewritten.
 
 ## Next
 
 Start M1 via the workflow (`docs/workflow.md`): `/grill-with-docs` on the skeleton
-activity → `/to-spec` → small docs PR → `/to-tickets`. The old
-`docs/tasks/m1-t1*` / `m1-t2*` prompts are superseded (kept frozen until the M1
-spec lands; their content feeds it).
+activity → `/to-spec` → small docs PR → `/to-tickets`. Scope: the M1 checklist
+above (the removed `docs/tasks/` prompts added no scope beyond it).
 
 ## Known issues / notes for next session
 

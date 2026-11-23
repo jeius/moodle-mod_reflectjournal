@@ -25,8 +25,8 @@ execute → PR → merge — documented in `docs/workflow.md`:
   body template verbatim; conventions in `specs/README.md`). It lands on `main`
   through a small docs PR **before** tickets are cut, so tickets link a stable path.
   The GitHub parent issue links to it and does not duplicate it. `docs/task-template.md`
-  is removed; the two existing prompts under `docs/tasks/` are frozen superseded
-  artifacts (kept until the first M1 spec replaces them — pending user call).
+  and the two prompts under `docs/tasks/` are removed (user call, 2026-11-23);
+  their M1 scope lives on in `docs/plan.md`.
 - **`plans/<issue#>-slug.md`** is the agent-written implementation plan per ticket
   (`superpowers:writing-plans` template + front matter; `plans/README.md`), committed
   as the first commit of the ticket's PR so the PR reads spec → plan → code.
