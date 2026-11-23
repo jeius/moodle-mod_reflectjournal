@@ -1,6 +1,6 @@
 # Reflection Journal: Progress
 
-_Last updated: 2026-11-23 (M0 session)_
+_Last updated: 2026-11-23 (M0 session + workflow restructure — `docs/workflow.md`)_
 
 ## Current milestone
 
@@ -22,11 +22,15 @@ _Last updated: 2026-11-23 (M0 session)_
 - PHPUnit: **3/3 green** (`mod_reflectjournal_testsuite`). phpcs (moodle-cs):
   **0 findings**. Behat init + run verified (no scenarios yet). purge_caches +
   CLI upgrade verified.
+- Workflow restructured around specs/ + plans/ (ADR-0006): `docs/task-template.md`
+  and the superseded `docs/tasks/` prompts removed, `docs/workflow.md` added,
+  AGENTS.md rewritten.
 
 ## Next
 
-Run **task prompt M1-T1** (`docs/tasks/m1-t1-mod-form-and-instance-crud.md`):
-mod_form + instance CRUD. Then M1-T2 (view + renderer).
+Start M1 via the workflow (`docs/workflow.md`): `/grill-with-docs` on the skeleton
+activity → `/to-spec` → small docs PR → `/to-tickets`. Scope: the M1 checklist
+above (the removed `docs/tasks/` prompts added no scope beyond it).
 
 ## Known issues / notes for next session
 
