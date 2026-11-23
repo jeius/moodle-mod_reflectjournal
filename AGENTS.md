@@ -7,7 +7,34 @@ grade. Core-API-first: every mechanism maps to a Moodle core API (ledger in
 `docs/architecture.md`); deviations need an ADR.
 
 Read first: `docs/progress.md` → `docs/plan.md` (milestones M0–M9 = GitHub milestones).
-Design: `docs/architecture.md`; decisions: `docs/adr/`; terms: `GLOSSARY.md`.
+Design: `docs/architecture.md`; decisions: `docs/adr/`; terms: `GLOSSARY.md`;
+workflow + one-skill-per-phase rationale: `docs/workflow.md`.
+
+## Workflow preferences (overrides on skill defaults — why: ADR-0006)
+- Specs: `specs/NNN-slug.md` is canonical (`specs/README.md`). `/to-spec` writes the
+  file + a parent issue linking it; the parent never duplicates the spec and gets no
+  `ready-for-agent` label (tickets only). Spec reaches main via a small docs PR
+  before tickets are cut.
+- Plans: `plans/<issue#>-slug.md` (`plans/README.md`), committed as the first commit
+  of the ticket's PR.
+- **Git worktrees disabled** (ADR-0006): the docker stack bind-mounts this exact
+  path, so work in place — one feature branch at a time, never on `main`
+  (declared preference per `superpowers:using-git-worktrees` Step 0). Sequential
+  subagent implementers only; never two writers in this tree at once.
+- Phases 1–3 are the user's slash commands (`disable-model-invocation`): the agent
+  never runs `/wayfinder`, `/grill-with-docs`, `/to-spec`, `/to-tickets`, and never
+  creates issues or milestones unasked. A ticket without a spec/plan → stop and ask.
+
+## Workflow (lifecycle + worked example: `docs/workflow.md`)
+| Phase | Skill | Run by | Artifact |
+|---|---|---|---|
+| 1 Decide | `/wayfinder` (foggy/large) or `/grill-with-docs` (one feature) | user | map issue, or GLOSSARY.md + `docs/adr/` |
+| 2 Spec | `/to-spec` | user | `specs/NNN-slug.md` + parent issue linking it |
+| 3 Tickets | `/to-tickets` | user | milestone issues; native blocking; `ready-for-agent`; each links its spec |
+| 4 Plan | `superpowers:writing-plans` | agent | `plans/<issue#>-slug.md` |
+| 5 Execute | `superpowers:subagent-driven-development` (fallback `executing-plans`) + `test-driven-development`, `verification-before-completion`, `systematic-debugging` | agent | commits on the ticket branch |
+| 6 PR | `superpowers:requesting-code-review` → `finishing-a-development-branch` | agent → user | PR `Closes #N`, links spec + plan, CI green |
+| 7 Merge | diff vs `docs/security-checklist.md` | user | merge; agent updates `docs/progress.md` + statuses |
 
 ## Commands (all verified on this machine)
 Every shell: `source docker/env.sh` (sets `$MOODLE_DOCKER_BIN`, wwwroot, port 8000).
@@ -45,21 +72,18 @@ One-time setup (pinned moodle-docker clone etc.): `docker/README.md`.
 - Never commit `moodle/`, `moodledata`, `docker/local.yml`, `ci/`, or secrets.
 - Ask before adding any dependency or changing the architecture.
 
-## Working loop
-1. Pick the next task from `docs/plan.md` (GitHub issue in milestone M0–M9;
-   **one PR per issue**); write the prompt from `docs/task-template.md`.
-2. Implement; PHPUnit + Behat + phpcs clean (commands above).
-3. Human reviews the diff (security + edge cases).
-4. Update `docs/progress.md` (and architecture/ADR if design changed) in the same commit; small focused PR.
-
-## Skills & tools (installed locally)
-- `tdd` / `superpowers:test-driven-development` — test-first feature tasks.
-- `code-review` + `superpowers:requesting-code-review` — before every PR.
-- `research` / `grill-with-docs` — verify Moodle API facts against docs (moodledev.io).
-- `moodle-external-api-development` — the future web-service phase only.
-- `triage`, `to-tickets`, `to-spec` — issue workflow (config below).
-- `browser-use` plugin — UI verification + M9 screen recording.
-- `github` plugin — PRs/issues; `documents`/`pdf`/`presentations` — portfolio artifacts.
+## Skills & tools (one per phase; rationale: `docs/workflow.md`)
+- Phases 1–3 (user): `wayfinder`, `grill-with-docs` (over `grilling`/`grill-me`),
+  `to-spec`, `to-tickets`.
+- Phases 4–6 (agent): `superpowers:writing-plans` (over `writing-implementation-plans`);
+  `superpowers:subagent-driven-development` with `superpowers:test-driven-development`
+  (over `tdd`), `verification-before-completion`, `systematic-debugging`;
+  `superpowers:requesting-code-review` (over `code-review`) →
+  `finishing-a-development-branch`.
+- Support: `research` (Moodle API facts vs moodledev.io; wayfinder research tickets);
+  `moodle-external-api-development` (future web-service phase only); `browser-use`
+  plugin (UI verification + M9 recording); `github` plugin (PRs/issues);
+  `documents`/`pdf`/`presentations` (portfolio artifacts).
 
 ## Agent skills
 ### Issue tracker
