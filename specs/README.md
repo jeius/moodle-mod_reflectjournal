@@ -25,8 +25,10 @@ adrs: []               # ADRs this spec relies on or introduced
 
 ## Body template
 
-The body is `/to-spec`'s own template, **verbatim** — do not invent a second template.
-The file layout is: front matter, then exactly these sections:
+The body keeps `/to-spec`'s own template — same sections, same order; wording
+preserved except /to-spec's inline example story (omitted) and the two spots
+marked *repo note* below. Do not invent a second template. The file layout is:
+front matter, then exactly these sections:
 
 ```markdown
 ## Problem Statement
@@ -57,9 +59,9 @@ A list of implementation decisions that were made. This can include:
 - API contracts
 - Specific interactions
 
-No specific file paths or code snippets (they go stale), with one exception: a
-prototype snippet that encodes a decision more precisely than prose can may be
-inlined, trimmed to the decision-rich parts.
+*Repo note (condensed from /to-spec):* no specific file paths or code snippets
+(they go stale), with one exception: a prototype snippet that encodes a decision
+more precisely than prose can may be inlined, trimmed to the decision-rich parts.
 
 ## Testing Decisions
 
@@ -67,8 +69,8 @@ A list of testing decisions that were made, including:
 
 - A description of what makes a good test (only test external behavior, not
   implementation details)
-- Which modules will be tested — for this repo: the highest existing seam
-  (service classes in `classes/`; Behat for UI journeys)
+- Which modules will be tested (*repo note:* the highest existing seam —
+  service classes in `classes/`; Behat for UI journeys)
 - Prior art for the tests (similar types of tests in the codebase)
 
 ## Out of Scope

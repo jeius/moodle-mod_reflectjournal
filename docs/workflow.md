@@ -38,7 +38,7 @@ but out of the workflow:
   `research` is not a phase: it is phase 1's legwork arm (wayfinder research tickets,
   Moodle API fact checks against moodledev.io).
 - **Phases 2–3 — `/to-spec`, `/to-tickets`.** No competitors. `/to-spec`'s body
-  template is used verbatim (`specs/README.md`); its "publish to the tracker" default
+  template is the spec body, repo notes marked (`specs/README.md`); its "publish to the tracker" default
   is overridden (spec file is canonical, parent issue is a link stub, and it gets no
   `ready-for-agent` label — tickets do).
 - **Phase 4 — `superpowers:writing-plans` over `writing-implementation-plans`.** The
@@ -89,10 +89,10 @@ Feature: *"learners can't edit after the deadline"* in milestone M2.
    (teachers exempt; what happens at the exact second), adds `deadline` semantics to
    `GLOSSARY.md`; no ADR needed.
 2. **Spec.** `/to-spec` writes `specs/004-entry-edit-lock.md`
-   (`status: draft`, `milestone: M2`). User approves → `status: approved`. Small docs
-   PR `docs: add spec 004 entry-edit-lock` merges to main. Parent issue **#17**
-   filed: one paragraph + "Canonical spec: `specs/004-entry-edit-lock.md`". Spec
-   front matter: `issue: 17`.
+   (`status: draft`, `milestone: M2`). User approves → `status: approved`; parent
+   issue **#17** filed at that same step — one paragraph + "Canonical spec:
+   `specs/004-entry-edit-lock.md`", front matter `issue: 17`. Then the small docs
+   PR `docs: add spec 004 entry-edit-lock` merges to main.
 3. **Tickets.** `/to-tickets` (pointed at the spec): **#18** "Deadline lock: service
    + PHPUnit" (no blockers) and **#19** "Deadline lock: UI + Behat" (blocked by #18).
    Both in milestone M2, `ready-for-agent`, bodies carry `Spec:

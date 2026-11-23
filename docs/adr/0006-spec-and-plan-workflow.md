@@ -22,7 +22,7 @@ Restructure the workflow around seven phases — decide → spec → tickets →
 execute → PR → merge — documented in `docs/workflow.md`:
 
 - **`specs/NNN-slug.md`** is the canonical feature spec (front matter + `/to-spec`'s
-  body template verbatim; conventions in `specs/README.md`). It lands on `main`
+  body template, repo notes marked; conventions in `specs/README.md`). It lands on `main`
   through a small docs PR **before** tickets are cut, so tickets link a stable path.
   The GitHub parent issue links to it and does not duplicate it. `docs/task-template.md`
   and the two prompts under `docs/tasks/` are removed (user call, 2026-11-23);

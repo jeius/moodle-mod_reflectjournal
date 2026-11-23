@@ -43,10 +43,11 @@ spec → plan → code. Status flips `ready → in-progress → done` as executi
 Global Constraints must carry these, and every task must satisfy them:
 
 1. **Test-first, always.** Every feature task starts with a failing test:
-   PHPUnit for logic (use the test generator — `tests/generator.php` — for
-   instances and entries), Behat only for UI journeys. Run commands are in
-   `AGENTS.md`; watch the test fail before writing implementation code
-   (`superpowers:test-driven-development`).
+   PHPUnit for logic (use the plugin's PHPUnit data generator for instances and
+   entries — `tests/generator.php` is finalized in M7, so earlier plans create or
+   extend it as their first need requires), Behat only for UI journeys. Run
+   commands are in `AGENTS.md`; watch the test fail before writing
+   implementation code (`superpowers:test-driven-development`).
 2. **Highest existing seam.** Test through the service classes in `classes/`;
    Behat for UI flows. New seams are proposed in the spec (`/to-spec` step 2), never
    invented in a plan. The ideal number of new seams is zero.
@@ -65,7 +66,7 @@ Global Constraints must carry these, and every task must satisfy them:
 
 ## Location override
 
-`superpowers:writing-plans` defaults to `docs/superpowers/plans/YYYY-MM-DD-<feature>.md`;
+`superpowers:writing-plans` defaults to `docs/superpowers/plans/YYYY-MM-DD-<feature-name>.md`;
 it explicitly honors user preferences, which this repo declares in `AGENTS.md`
 ("Workflow preferences") and records in `docs/adr/0006-spec-and-plan-workflow.md`:
 plans live here, named after the ticket.
