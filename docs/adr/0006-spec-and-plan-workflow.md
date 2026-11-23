@@ -1,7 +1,7 @@
 # 0006. Spec/plan workflow replaces per-task prompts
 
 Date: 2026-11-23
-Status: Accepted
+Status: Accepted (amended 2026-11-23 — see Amendment below)
 
 ## Context
 
@@ -21,14 +21,14 @@ complementary skill sets installed: Matt Pocock's decision/spec/ticket skills
 Restructure the workflow around seven phases — decide → spec → tickets → plan →
 execute → PR → merge — documented in `docs/workflow.md`:
 
-- **`specs/NNN-slug.md`** is the canonical feature spec (front matter + `/to-spec`'s
-  body template, repo notes marked; conventions in `specs/README.md`). It lands on `main`
+- **`docs/specs/NNN-slug.md`** is the canonical feature spec (front matter + `/to-spec`'s
+  body template, repo notes marked; conventions in `docs/specs/README.md`). It lands on `main`
   through a small docs PR **before** tickets are cut, so tickets link a stable path.
   The GitHub parent issue links to it and does not duplicate it. `docs/task-template.md`
   and the two prompts under `docs/tasks/` are removed (user call, 2026-11-23);
   their M1 scope lives on in `docs/plan.md`.
-- **`plans/<issue#>-slug.md`** is the agent-written implementation plan per ticket
-  (`superpowers:writing-plans` template + front matter; `plans/README.md`), committed
+- **`docs/plans/<issue#>-slug.md`** is the agent-written implementation plan per ticket
+  (`superpowers:writing-plans` template + front matter; `docs/plans/README.md`), committed
   as the first commit of the ticket's PR so the PR reads spec → plan → code.
 - Phases 1–3 run by the user (the skills are user-invoked by design), phases 4–6 by
   the agent, merge by the user. One skill per phase where skills overlap; rationale
@@ -51,23 +51,35 @@ parallel implementers).
 
 | Skill | Default | This repo | Mechanism |
 |---|---|---|---|
-| `/to-spec` | publish the spec as a tracker issue, `ready-for-agent` | canonical file `specs/NNN-slug.md` + link-stub parent issue, no `ready-for-agent` (tickets only) | `AGENTS.md` prefs + `docs/agents/issue-tracker.md` (the tracker doc the skill consults) |
-| `superpowers:writing-plans` | `docs/superpowers/plans/YYYY-MM-DD-<feature>.md` | `plans/<issue#>-slug.md` | the skill itself says user preferences override the location |
+| `/to-spec` | publish the spec as a tracker issue, `ready-for-agent` | canonical file `docs/specs/NNN-slug.md` + link-stub parent issue, no `ready-for-agent` (tickets only) | `AGENTS.md` prefs + `docs/agents/issue-tracker.md` (the tracker doc the skill consults) |
+| `superpowers:writing-plans` | `docs/superpowers/plans/YYYY-MM-DD-<feature>.md` | `docs/plans/<issue#>-slug.md` | the skill itself says user preferences override the location |
 | `superpowers:using-git-worktrees` (and SDD/executing-plans' worktree setup) | create an isolated worktree | work in place on one feature branch | the skill's Step 0 honors a declared preference in instructions (`AGENTS.md`) |
 | `finishing-a-development-branch` | three integration options | expected choice is "push and create a PR"; merge on GitHub by the user | preference note in `docs/workflow.md` phase 7 |
+
+## Amendment (2026-11-23, later the same day)
+
+`specs/` and `plans/` moved under `docs/` — now `docs/specs/` and `docs/plans/` — by
+user decision, before anything had executed against the root layout (no spec, plan,
+or ticket flows through the old paths). Co-locating all documentation in one tree
+drops the per-directory `export-ignore` lines from `.gitattributes`, and the
+discoverability argument in the rejected alternative below was overstated: the
+`code-review` skill searches repo-root `specs/` **and** `docs/` for a spec, so
+`docs/specs/` is found just as well. Skill-default overrides are unaffected —
+`writing-plans` and `using-git-worktrees` honor whatever `AGENTS.md` declares.
 
 ## Alternatives considered
 
 - **Keep `docs/tasks/` prompts**: no canonical spec layer, no stable link targets,
   process invisible; rejected.
 - **Skill-default locations** (`docs/superpowers/plans/`, tracker-only specs):
-  splits the portfolio across directories and hides specs from tooling that searches
-  repo-root `specs/` (e.g. the `code-review` skill's spec lookup); rejected.
+  splits the portfolio across directories; rejected. (The "hides specs from tooling"
+  clause was overstated — the `code-review` skill searches repo-root `specs/` and
+  `docs/` alike; see Amendment.)
 - **Worktree via docker override** (mount the worktree per branch): see above; rejected.
 
 ## Consequences
 
 Specs and plans are committed and never deleted — the repo itself demonstrates the
-process. `specs/` and `plans/` are `export-ignore`d like `docs/` so release zips
-stay plugin-only. Milestone entry points (wayfinder only where real fog exists) are
+process. They sit under `docs/`, whose `export-ignore` keeps them out of release
+zips. Milestone entry points (wayfinder only where real fog exists) are
 recorded in `docs/plan.md`.

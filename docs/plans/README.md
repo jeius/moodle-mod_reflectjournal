@@ -6,13 +6,13 @@ they are portfolio evidence of the workflow.
 
 ## Naming and front matter
 
-`plans/<issue#>-slug.md`, named after the ticket (e.g. `plans/18-deadline-lock-service.md`).
+`docs/plans/<issue#>-slug.md`, named after the ticket (e.g. `docs/plans/18-deadline-lock-service.md`).
 
 ```markdown
 ---
 status: ready          # ready | in-progress | done
 issue: 18              # ticket this plan implements
-spec: specs/004-entry-edit-lock.md   # canonical spec
+spec: docs/specs/004-entry-edit-lock.md   # canonical spec
 pr: 0                  # PR number (0 until opened)
 ---
 ```

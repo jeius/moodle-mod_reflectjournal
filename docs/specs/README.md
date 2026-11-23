@@ -6,7 +6,7 @@ they are portfolio evidence of the workflow (see `docs/workflow.md`).
 
 ## Naming and numbering
 
-`specs/NNN-slug.md`, globally sequential across the whole repo (`001`, `002`, … — not
+`docs/specs/NNN-slug.md`, globally sequential across the whole repo (`001`, `002`, … — not
 per milestone). Take the next free number.
 
 ## Front matter
@@ -100,7 +100,7 @@ Statuses are updated by the agent after merges (phase 7 of `docs/workflow.md`).
 Recorded in `AGENTS.md` ("Workflow preferences") and `docs/workflow.md`:
 
 - The canonical artifact is this file, not a tracker issue. `/to-spec`'s default
-  ("publish the spec to the issue tracker") becomes: write `specs/NNN-slug.md` and
+  ("publish the spec to the issue tracker") becomes: write `docs/specs/NNN-slug.md` and
   file a parent issue that links it.
 - The parent issue gets **no** `ready-for-agent` label — that label is for tickets
   cut by `/to-tickets` (`docs/agents/triage-labels.md`). The parent is a link stub,

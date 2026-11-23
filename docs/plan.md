@@ -7,7 +7,7 @@ GitHub milestones **M0–M9** mirror this file; **one PR per issue**; workflow:
 ## Milestone entry points (workflow proposal, 2026-11-23)
 
 `/wayfinder` only where real fog exists; everything else starts with
-`/grill-with-docs` → `/to-spec`. Spec numbers are global (`specs/NNN-…`), so the
+`/grill-with-docs` → `/to-spec`. Spec numbers are global (`docs/specs/NNN-…`), so the
 counts below are per milestone, not file numbers.
 
 | Milestone | Entry point | Expected specs |

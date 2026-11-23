@@ -10,9 +10,9 @@ and the rationale is in `docs/adr/0006-spec-and-plan-workflow.md`.
 | # | Phase | Skill | Run by | Artifact |
 |---|-------|-------|--------|----------|
 | 1 | Decide | `/wayfinder` (large or foggy effort) or `/grill-with-docs` (one feature; wraps grilling + domain-modeling and writes docs as it goes) | **user** (slash command) | wayfinder map issue (`wayfinder:map` + child decision tickets, native blocking), or updated `GLOSSARY.md` + `docs/adr/` |
-| 2 | Spec | `/to-spec` | **user** | `specs/NNN-slug.md` — canonical, committed via a small docs PR before tickets exist — plus a parent GitHub issue that links to it |
+| 2 | Spec | `/to-spec` | **user** | `docs/specs/NNN-slug.md` — canonical, committed via a small docs PR before tickets exist — plus a parent GitHub issue that links to it |
 | 3 | Tickets | `/to-tickets` | **user** | GitHub issues in the milestone, native blocked-by edges, label `ready-for-agent`, each body linking its spec |
-| 4 | Plan | `superpowers:writing-plans` | agent | `plans/<issue#>-slug.md` (front matter + the skill's required header and task structure; `plans/README.md`) |
+| 4 | Plan | `superpowers:writing-plans` | agent | `docs/plans/<issue#>-slug.md` (front matter + the skill's required header and task structure; `docs/plans/README.md`) |
 | 5 | Execute | `superpowers:subagent-driven-development` (fallback: `superpowers:executing-plans`), with `superpowers:test-driven-development`, `superpowers:verification-before-completion`, `superpowers:systematic-debugging` on failures | agent | commits on the ticket branch |
 | 6 | PR | `superpowers:requesting-code-review`, then `superpowers:finishing-a-development-branch` | agent, then user | PR via `gh`: body says `Closes #N`, links the spec and the plan, CI green |
 | 7 | Merge | user reviews the diff against `docs/security-checklist.md` | **user** | merged PR; the agent then updates `docs/progress.md` and artifact statuses |
@@ -38,13 +38,13 @@ but out of the workflow:
   `research` is not a phase: it is phase 1's legwork arm (wayfinder research tickets,
   Moodle API fact checks against moodledev.io).
 - **Phases 2–3 — `/to-spec`, `/to-tickets`.** No competitors. `/to-spec`'s body
-  template is the spec body, repo notes marked (`specs/README.md`); its "publish to the tracker" default
+  template is the spec body, repo notes marked (`docs/specs/README.md`); its "publish to the tracker" default
   is overridden (spec file is canonical, parent issue is a link stub, and it gets no
   `ready-for-agent` label — tickets do).
 - **Phase 4 — `superpowers:writing-plans` over `writing-implementation-plans`.** The
   local skill *extends* writing-plans with recon and content rules, but its examples
   are TypeScript/drizzle/vitest-specific and its gates don't transfer; Moodle's plan
-  gates live in `plans/README.md` instead. Its general discipline (blast-radius sweep,
+  gates live in `docs/plans/README.md` instead. Its general discipline (blast-radius sweep,
   pinned literals from verified sources, runnable checks over prose claims) is worth
   consulting, not binding.
 - **Phase 5 — `superpowers:subagent-driven-development` over `implement` /
@@ -58,19 +58,19 @@ but out of the workflow:
   local `tdd`: same red-green core, but the superpowers Iron-Law loop integrates with
   SDD's review loop and systematic-debugging; the seam discipline `tdd` adds is
   already handled upstream — `/to-spec` step 2 agrees seams with the user, and
-  `plans/README.md` binds them per plan.
+  `docs/plans/README.md` binds them per plan.
 - **Phase 6 — `superpowers:requesting-code-review` over local `code-review`.** It is
   the reviewer SDD's final whole-branch pass already uses, and it pairs with
   finishing-a-development-branch. The two-axis `code-review` remains available as a
-  deeper, user-invoked audit (it already searches `specs/` for the spec) but is not
+  deeper, user-invoked audit (it already searches `docs/specs/` for the spec) but is not
   the phase skill.
 
 ## Artifact lifecycle
 
-- **Spec** (`specs/NNN-slug.md`): `draft` → `approved` (user confirms; parent issue
+- **Spec** (`docs/specs/NNN-slug.md`): `draft` → `approved` (user confirms; parent issue
   filed) → merged to `main` via a small docs PR → tickets cut (`tickets:` fills in) →
   `implemented` when the last ticket merges. **Never deleted** — portfolio evidence.
-- **Plan** (`plans/<issue#>-slug.md`): `ready` → `in-progress` → `done`. Committed as
+- **Plan** (`docs/plans/<issue#>-slug.md`): `ready` → `in-progress` → `done`. Committed as
   the **first commit** of the ticket's PR, so the PR reads spec → plan → code.
   **Never deleted.**
 - **Parent issue**: one paragraph + link to the spec path; no duplication, no
@@ -88,19 +88,19 @@ Feature: *"learners can't edit after the deadline"* in milestone M2.
 1. **Decide.** One feature, mild fog — `/grill-with-docs`. Locks the semantics
    (teachers exempt; what happens at the exact second), adds `deadline` semantics to
    `GLOSSARY.md`; no ADR needed.
-2. **Spec.** `/to-spec` writes `specs/004-entry-edit-lock.md`
+2. **Spec.** `/to-spec` writes `docs/specs/004-entry-edit-lock.md`
    (`status: draft`, `milestone: M2`). User approves → `status: approved`; parent
    issue **#17** filed at that same step — one paragraph + "Canonical spec:
-   `specs/004-entry-edit-lock.md`", front matter `issue: 17`. Then the small docs
+   `docs/specs/004-entry-edit-lock.md`", front matter `issue: 17`. Then the small docs
    PR `docs: add spec 004 entry-edit-lock` merges to main.
 3. **Tickets.** `/to-tickets` (pointed at the spec): **#18** "Deadline lock: service
    + PHPUnit" (no blockers) and **#19** "Deadline lock: UI + Behat" (blocked by #18).
    Both in milestone M2, `ready-for-agent`, bodies carry `Spec:
-   specs/004-entry-edit-lock.md`. Spec: `tickets: [18, 19]`.
+   docs/specs/004-entry-edit-lock.md`. Spec: `tickets: [18, 19]`.
 4. **Plan.** Agent branches `ticket/18-deadline-lock-service`, runs
-   writing-plans → `plans/18-deadline-lock-service.md` (`status: ready`, `issue: 18`,
-   `spec: specs/004-entry-edit-lock.md`, `pr: 0`), committed as the branch's first
-   commit. Global Constraints carry the Moodle gates from `plans/README.md` and name
+   writing-plans → `docs/plans/18-deadline-lock-service.md` (`status: ready`, `issue: 18`,
+   `spec: docs/specs/004-entry-edit-lock.md`, `pr: 0`), committed as the branch's first
+   commit. Global Constraints carry the Moodle gates from `docs/plans/README.md` and name
    the core API (e.g. activity dates API + calendar events).
 5. **Execute.** SDD: failing PHPUnit test at the `classes/` service seam → minimal
    implementation → task review → next. Test failures route through

@@ -86,7 +86,7 @@ Create docs/brief.md first and get my confirmation before expanding. Then:
   security review > M4 grading and completion > M5 events, logging, privacy
   API > M6 backup/restore > M7 PHPUnit and Behat coverage > M8 polish, seed
   script, README, screen recording. Adjust as you see fit and explain why.
-- progress.md, task-template.md (since replaced by specs/ + plans/ — see
+- progress.md, task-template.md (since replaced by docs/specs/ + docs/plans/ — see
   docs/workflow.md), and ADRs for: Moodle version target, plugin
   mounting strategy, repo layout, testing approach.
 - docs/security-checklist.md for reviewing every diff (capability checks,
@@ -116,5 +116,5 @@ mustache lint, Grunt. Include hard guardrails:
   moodle-plugin-ci, and make the first commit.
 - Report exactly what you verified and what you could not.
 - Then write the first two M1 work items per the then-current workflow (task
-  prompts from the task template; superseded 2026-11-23 by specs/ + plans/ —
+  prompts from the task template; superseded 2026-11-23 by docs/specs/ + docs/plans/ —
   docs/workflow.md), and suggest which to run first. Wait for my go-ahead.

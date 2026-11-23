@@ -22,9 +22,9 @@ _Last updated: 2026-11-23 (M0 session + workflow restructure — `docs/workflow.
 - PHPUnit: **3/3 green** (`mod_reflectjournal_testsuite`). phpcs (moodle-cs):
   **0 findings**. Behat init + run verified (no scenarios yet). purge_caches +
   CLI upgrade verified.
-- Workflow restructured around specs/ + plans/ (ADR-0006): `docs/task-template.md`
-  and the superseded `docs/tasks/` prompts removed, `docs/workflow.md` added,
-  AGENTS.md rewritten.
+- Workflow restructured around `docs/specs/` + `docs/plans/` (ADR-0006, amended
+  same day to nest them under `docs/`): `docs/task-template.md` and the superseded
+  `docs/tasks/` prompts removed, `docs/workflow.md` added, AGENTS.md rewritten.
 
 ## Next
 

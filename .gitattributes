@@ -1,8 +1,6 @@
 # Release zips contain only the plugin itself (Marketplace-ready).
 .github/            export-ignore
 docs/               export-ignore
-specs/              export-ignore
-plans/              export-ignore
 docker/             export-ignore
 GLOSSARY.md         export-ignore
 AGENTS.md           export-ignore

@@ -11,11 +11,11 @@ Design: `docs/architecture.md`; decisions: `docs/adr/`; terms: `GLOSSARY.md`;
 workflow + one-skill-per-phase rationale: `docs/workflow.md`.
 
 ## Workflow preferences (overrides on skill defaults — why: ADR-0006)
-- Specs: `specs/NNN-slug.md` is canonical (`specs/README.md`). `/to-spec` writes the
+- Specs: `docs/specs/NNN-slug.md` is canonical (`docs/specs/README.md`). `/to-spec` writes the
   file + a parent issue linking it; the parent never duplicates the spec and gets no
   `ready-for-agent` label (tickets only). Spec reaches main via a small docs PR
   before tickets are cut.
-- Plans: `plans/<issue#>-slug.md` (`plans/README.md`), committed as the first commit
+- Plans: `docs/plans/<issue#>-slug.md` (`docs/plans/README.md`), committed as the first commit
   of the ticket's PR.
 - **Git worktrees disabled** (ADR-0006): the docker stack bind-mounts this exact
   path, so work in place — one feature branch at a time, never on `main`
@@ -29,9 +29,9 @@ workflow + one-skill-per-phase rationale: `docs/workflow.md`.
 | Phase | Skill | Run by | Artifact |
 |---|---|---|---|
 | 1 Decide | `/wayfinder` (foggy/large) or `/grill-with-docs` (one feature) | user | map issue, or GLOSSARY.md + `docs/adr/` |
-| 2 Spec | `/to-spec` | user | `specs/NNN-slug.md` + parent issue linking it |
+| 2 Spec | `/to-spec` | user | `docs/specs/NNN-slug.md` + parent issue linking it |
 | 3 Tickets | `/to-tickets` | user | milestone issues; native blocking; `ready-for-agent`; each links its spec |
-| 4 Plan | `superpowers:writing-plans` | agent | `plans/<issue#>-slug.md` |
+| 4 Plan | `superpowers:writing-plans` | agent | `docs/plans/<issue#>-slug.md` |
 | 5 Execute | `superpowers:subagent-driven-development` (fallback `executing-plans`) + `test-driven-development`, `verification-before-completion`, `systematic-debugging` | agent | commits on the ticket branch |
 | 6 PR | `superpowers:requesting-code-review` → `finishing-a-development-branch` | agent → user | PR `Closes #N`, links spec + plan, CI green |
 | 7 Merge | diff vs `docs/security-checklist.md` | user | merge; agent updates `docs/progress.md` + statuses |
