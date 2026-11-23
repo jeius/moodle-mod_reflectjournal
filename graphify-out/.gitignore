@@ -1,0 +1,2 @@
+# Transient graphify pipeline state — safe to delete; rebuilt on the next run.
+.graphify_*
