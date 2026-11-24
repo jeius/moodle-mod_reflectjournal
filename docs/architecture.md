@@ -81,7 +81,7 @@ The repository has `pix/icon.svg` today; it needs to become `pix/monologo.svg`.
 | Concern | Core mechanism (checked against 5.3 source) | Docs | Notes |
 |---|---|---|---|
 | Forms | `moodleform_mod` (`course/moodleform_mod.php`): `standard_intro_elements()`, `standard_grading_coursemodule_elements()`, `add_completion_rules()` + `completion_rule_enabled()` | [Form](https://moodledev.io/docs/5.3/apis/subsystems/form) | No custom form framework: `mod_form.php` plus one form in `classes/form/` |
-| Rich text & attachments | File API: draft file areas, `file_prepare_draft_area()`, `file_save_draft_area_files()`, `reflectjournal_pluginfile()` in lib.php, `send_stored_file()` (`lib/filelib.php`) | [Files](https://moodledev.io/docs/5.3/apis/subsystems/files), [files in forms](https://moodledev.io/docs/5.3/apis/subsystems/form/usage/files) | Areas `intro`, `entry`, `feedback`. The entry and feedback editors run with `'maxfiles' => 0` until M8, so no file manager is shown. When files arrive, `file_rewrite_pluginfile_urls()` runs before `format_text()`, as `format_module_intro()` does. See §File access |
+| Rich text & attachments | File API: draft file areas, `file_prepare_draft_area()`, `file_save_draft_area_files()`, `reflectjournal_pluginfile()` in lib.php, `send_stored_file()` (`lib/filelib.php`) | [Files](https://moodledev.io/docs/5.3/apis/subsystems/files), [files in forms](https://moodledev.io/docs/5.3/apis/subsystems/form/usage/files) | Areas `intro` and `entry` — files attach to entries only, feedback stays text (PRD L1; ruled 2026-11-24). The entry editor runs with `'maxfiles' => 0` until M8, the feedback editor stays at 0, so neither shows a file manager until then. When files arrive, `file_rewrite_pluginfile_urls()` runs before `format_text()`, as `format_module_intro()` does. See §File access |
 | Data access | `$DB` (DML) + XMLDB (`db/install.xml`) | [DML](https://moodledev.io/docs/5.3/apis/core/dml), [DDL](https://moodledev.io/docs/5.3/apis/core/dml/ddl) | No tables outside XMLDB; no raw SQL with user input (the one JOIN, in the submissions list, is assembled from core helpers). Keys are documentation only and nothing cascades (§Data model). Entries reach `$DB` only through `classes/entry.php`; `\core\persistent` was evaluated and not adopted (§Data model) |
 | Access | Capabilities in `db/access.php`; `require_login()`, `require_capability()` | [Access](https://moodledev.io/docs/5.3/apis/subsystems/access) | Matrix below |
 | CSRF | `require_sesskey()` / `confirm_sesskey()` on every write | | |
@@ -136,7 +136,7 @@ reflectjournal_entries    (one row per learner per instance)
   userid → user.id
   content, contentformat
   timecreated (= submission time; there is no draft state), timemodified
-  feedback, feedbackformat, feedbackby, feedbackmodified   [M4]
+  feedback, feedbackformat, feedbackby, feedbackmodified   [M3]
   UNIQUE KEY (reflectjournalid, userid)   ← enforces "one entry"
   INDEX userid                              ← privacy export and delete by user
 
@@ -351,6 +351,10 @@ store cannot serve both rules and two copies would drift, so the gradebook's
   (`user/classes/table/participants_search.php`). A "show suspended" filter, gated on
   **both** `moodle/course:enrolreview` and `moodle/course:viewsuspendedusers`
   (ruled 2026-11-24), is nice-to-have for a later version.
+- **Gradebook "show to students" (`showgrades`) is not consulted**: no core activity
+  consults it before displaying a grade in the activity, so grades display here
+  regardless of that course setting (verified 2026-11-24; `docs/research.md`,
+  §Approval rulings).
 - **No delete-entry action**, for anyone (accepted 2026-11-24). This is what keeps
   "completion once earned, stays" true.
 
@@ -390,7 +394,7 @@ without it to be testable. The chain, in order:
 2. `require_login($course, false, $cm)`.
 3. `require_capability('mod/reflectjournal:view', $context)`.
 4. Per area, with the entry id taken from the URL:
-   - `entry` and `feedback`: load the entry; it must belong to this instance. The
+   - `entry`: load the entry; it must belong to this instance. The
      request is allowed for the entry's owner, and for anyone else only with
      `mod/reflectjournal:givefeedback`.
    - Any other area: not found.
@@ -403,9 +407,11 @@ instance, then owner-or-capability, then the file.
 Until M8 only the prompt's `intro` area holds files. The entry and feedback editors run
 with `'maxfiles' => 0` (the editor's own default), so they show no file manager and no
 draft area is prepared (`MoodleQuickForm_editor::toHtml()` in `lib/form/editor.php`).
-The callback and its tests are built now, so that M8 adds two areas and no new access
-path. From M8 the stored text carries `@@PLUGINFILE@@` placeholders, and every output
-runs `file_rewrite_pluginfile_urls()` before `format_text()`, as `format_module_intro()`
+The callback and its tests are built now, so that M8 adds one area and no new access
+path. M8 touches the `entry` editor only — files attach to entries, feedback stays text
+(PRD L1; ruled 2026-11-24), so its editor keeps `maxfiles` 0 permanently. From M8 the
+stored entry text carries `@@PLUGINFILE@@` placeholders, and every output runs
+`file_rewrite_pluginfile_urls()` before `format_text()`, as `format_module_intro()`
 does (`lib/weblib.php`).
 
 ## Privacy provider scope
@@ -434,9 +440,10 @@ The provider implements three interfaces (`provider` in
 wrote feedback as a data subject in their own right, the way `mod_assign` treats a
 grader: contexts and user lists include `feedbackby`, a teacher's export lists the
 feedback they wrote, and a teacher's erasure request deletes that feedback —
-`feedback`, `feedbackformat`, `feedbackmodified` and the files in the `feedback` area,
-with `feedbackby` set to 0 — while leaving the learner's entry and the gradebook grade
-untouched. Reasoning and test:
+`feedback`, `feedbackformat` and `feedbackmodified`, with `feedbackby` set to 0 — while
+leaving the learner's entry and the gradebook grade untouched. Feedback stays text
+(files attach to entries only, PRD L1; ruled 2026-11-24), so there is no `feedback`
+file area. Reasoning and test:
 [ADR-0008](adr/0008-feedbackby-privacy-semantics.md).
 
 That is what lets Moodle's data request tools cover the plugin's data (PRD L4), for one
@@ -449,7 +456,8 @@ belong to the gradebook and are covered by its own provider
 
 Backup: instance config always; entries and feedback only when "user data" is
 toggled. Every file area is annotated so its files travel too: `annotate_files()` for
-`intro`, `entry` and `feedback` (`backup_nested_element::annotate_files()` in
+`intro` and `entry` — feedback stays text, no area (PRD L1; ruled 2026-11-24)
+(`backup_nested_element::annotate_files()` in
 `backup/util/structure/backup_nested_element.class.php`).
 
 Restore:
@@ -516,16 +524,18 @@ Core looks up three optional functions in `lib.php`, by name
 | Deadline enforced on the server | PHPUnit with a frozen clock: a save one second before the deadline succeeds, a save exactly at the deadline is rejected and writes nothing, and a request built without the form is rejected the same way |
 | One entry under a race | PHPUnit: swap in the `entry` subclass whose `find_existing()` creates the competing row, and assert the save ends with exactly one row and no exception. It runs in CI on both databases, PostgreSQL and MariaDB (ADR-0005) |
 | Transaction guard | PHPUnit: call `entry::save()` inside `$DB->start_delegated_transaction()` and assert `dml_transaction_exception` |
+| Save keyed to the saver | PHPUnit: a save built with a forged user-id request parameter still lands keyed to `$USER->id`; no request parameter can make one learner write or overwrite another learner's entry |
+| Entry + feedback readable by owner or `givefeedback` only | PHPUnit: learner B cannot open the teacher's single-entry view of learner A's entry (needs `givefeedback`) and never sees A's feedback; a `givefeedback` teacher sees both |
 | Hidden grades stay hidden | PHPUnit, once per hide level (the learner's grade hidden in the Grader report; the item "Hidden until" a future date): the learner's page shows no grade. With both removed it shows the grade |
 | File access across learners | PHPUnit: learner B asks `files::resolve()` for a file in learner A's `entry` area and gets `required_capability_exception`; A gets the file; a teacher with `givefeedback` gets it; an entry id from another instance is not found |
 | Capability split | PHPUnit: a teacher without `mod/reflectjournal:grade` opens `grade.php` and saves feedback but is refused on the grade field; a user without `givefeedback` cannot open the page |
-| Feedback erasure for a teacher | PHPUnit (ADR-0008): after a delete request for teacher T, the feedback T wrote is gone (text, format, timestamp, `feedback` file area) and `feedbackby` is 0, while the learner's entry and grade are unchanged |
+| Feedback erasure for a teacher | PHPUnit (ADR-0008): after a delete request for teacher T, the feedback T wrote is gone (text, format, timestamp — there is no `feedback` file area, ADR-0008 amended 2026-11-24) and `feedbackby` is 0, while the learner's entry and grade are unchanged |
 | Rescale keeps percentages | PHPUnit: learners graded across the range, then `reflectjournal_rescale_activity_grades()` with a new maximum — every learner's percentage is unchanged and no plugin data is touched |
 | `grade_update` locked results | PHPUnit: with the grade item locked, `grade_update()` returns `GRADE_UPDATE_ITEM_LOCKED` and the page tells the teacher to unlock it there; with the learner's grade locked or past its lock time, it returns `GRADE_UPDATE_FAILED` and the page says the grade was not saved |
-| Backup/restore round trip | PHPUnit: backup with user data, restore into a second course — entries, feedback (text and `feedbackby` remapped), the `entry` and `feedback` files, and the deadline shifted by the date offset come back; without user data, no entries arrive |
+| Backup/restore round trip | PHPUnit: backup with user data, restore into a second course — entries, feedback (text and `feedbackby` remapped), the `entry` files, and the deadline shifted by the date offset come back; without user data, no entries arrive |
 | Privacy provider | PHPUnit extending core's `\core_privacy\tests\provider_testcase`: metadata, learner export/erasure and teacher export/erasure run through the core test case (ADR-0008) |
 | Calendar event create/refresh | PHPUnit: saving an instance with a deadline creates the action event; changing the deadline updates its time; `reflectjournal_refresh_events()` rebuilds it from `deadline` (the restore path); removing the deadline removes it |
-| Completion rule | PHPUnit: `completionsubmit` on and an entry row exists → complete via `\completion_info::update_state()`; no entry → incomplete; the state never regresses (no delete-entry action) |
+| Completion rule | PHPUnit: `completionsubmit` on and an entry row exists → complete via `\completion_info::update_state()`; no entry → incomplete; the state never regresses (no delete-entry action); completion shows immediately after saving — the entry-save path calls `update_state()` in-request, not via cron |
 
 ## Conventions
 

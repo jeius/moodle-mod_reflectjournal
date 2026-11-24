@@ -1,7 +1,7 @@
 # 0008. `feedbackby`: the teacher who wrote feedback is a data subject
 
 Date: 2026-11-24
-Status: Accepted (2026-11-24)
+Status: Accepted (2026-11-24; amended 2026-11-24 — see Amendments below)
 
 ## Context
 
@@ -43,6 +43,16 @@ the `mod_assign` pattern:
 - **Metadata string.** The `privacy:metadata:*` string for `feedbackby` says that the
   feedback a teacher authored is removed when they request erasure (accepted
   2026-11-24).
+
+## Amendment (2026-11-24): feedback stays text
+
+Files attach to entries only; feedback stays plain text (PRD L1, "File attachments on
+entries"; ruled 2026-11-24). The `feedback` file area named in the decision and test
+above therefore never exists, and the erasure clauses that delete it are vacuously
+satisfied. The erasure semantics themselves are unchanged: text, format and timestamp
+are cleared and `feedbackby` is set to 0. Plan and file-area notes updated to match
+(`docs/plan.md` M3/M6/M7/M8; `docs/architecture.md` §Core-API mapping, §File access,
+§Privacy provider scope, §Backup/restore scope, §Tests this design needs).
 
 ## Alternatives considered
 

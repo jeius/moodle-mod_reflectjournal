@@ -4,7 +4,9 @@ _Last updated: 2026-11-24 (architecture review round 3 approved; docs sync)_
 
 ## Current milestone
 
-**M0 — Baseline: complete** (pending CI-green confirmation on first push).
+**M0 — Baseline: pending CI green** — branch `docs/architecture-review` pushed
+2026-11-24; M0 is not ticked complete until CI has run green on PostgreSQL **and**
+MariaDB. Local install + PHPUnit already green.
 
 ## Done
 

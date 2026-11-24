@@ -1,7 +1,7 @@
 # 0006. Spec/plan workflow replaces per-task prompts
 
 Date: 2026-11-23
-Status: Accepted (amended 2026-11-23 — see Amendment below)
+Status: Accepted (amended 2026-11-23 and 2026-11-24 — see Amendments below)
 
 ## Context
 
@@ -67,6 +67,18 @@ discoverability argument in the rejected alternative below was overstated: the
 `docs/specs/` is found just as well. Skill-default overrides are unaffected —
 `writing-plans` and `using-git-worktrees` honor whatever `AGENTS.md` declares.
 
+## Amendment (2026-11-24): location settled under `docs/`
+
+During the 2026-11-24 architecture round, `specs/` and `plans/` were briefly moved to
+the repo root and moved back under `docs/` the same day, on user review. **The
+canonical locations are `docs/specs/` and `docs/plans/` — a deliberate choice.** The
+reason: the repo root **is** the plugin root, and this repository ships as the plugin
+(Marketplace zip, one activity module) — non-plugin workflow files stay out of it.
+`docs/` is already export-ignored in `.gitattributes`, so release zips stay clean
+without per-directory entries, and the 2026-11-23 nesting rationale (co-locating all
+documentation in one tree) stands. Nothing ever executed against the brief root
+layout, so no artifact paths changed.
+
 ## Alternatives considered
 
 - **Keep `docs/tasks/` prompts**: no canonical spec layer, no stable link targets,
@@ -81,5 +93,5 @@ discoverability argument in the rejected alternative below was overstated: the
 
 Specs and plans are committed and never deleted — the repo itself demonstrates the
 process. They sit under `docs/`, whose `export-ignore` keeps them out of release
-zips. Milestone entry points (wayfinder only where real fog exists) are
+zips. Milestone entry points (grill-first; wayfinder only on real unknowns) are
 recorded in `docs/plan.md`.

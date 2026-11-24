@@ -1,7 +1,7 @@
 # 0007. Gradebook is the only grade store (no plugin-side grade column)
 
 Date: 2026-11-24
-Status: Proposed (awaiting review)
+Status: Accepted (2026-11-24)
 
 ## Context
 
