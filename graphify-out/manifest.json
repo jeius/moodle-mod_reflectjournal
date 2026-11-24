@@ -42,8 +42,8 @@
     "semantic_hash": "fd699668623a8b46d3946b7bb6a65c13"
   },
   "AGENTS.md": {
-    "mtime": 1795476220.4440997,
-    "seen": 1795481248.784641,
+    "mtime": 1795482519.4713156,
+    "seen": 1795497060.5960581,
     "ast_hash": "459fcdb161b2211950f837fb19d5c350",
     "semantic_hash": "459fcdb161b2211950f837fb19d5c350"
   },
@@ -96,10 +96,10 @@
     "semantic_hash": "6be970d733c14bef55732ac7f34e6dc3"
   },
   "docs/adr/0005-testing-approach.md": {
-    "mtime": 1795408491.8817632,
-    "seen": 1795481248.784654,
-    "ast_hash": "04bb9d5a7e3e62a3ad9e295f47c27bf6",
-    "semantic_hash": "04bb9d5a7e3e62a3ad9e295f47c27bf6"
+    "mtime": 1795495893.5911303,
+    "seen": 1795496940.7750952,
+    "ast_hash": "6c705d690766357fd4e2755619eb4ff4",
+    "semantic_hash": "6c705d690766357fd4e2755619eb4ff4"
   },
   "docs/adr/0006-spec-and-plan-workflow.md": {
     "mtime": 1795444782.3197196,
@@ -126,10 +126,10 @@
     "semantic_hash": "9918a4051db590bde5644c39db5194f4"
   },
   "docs/architecture.md": {
-    "mtime": 1795445383.5965881,
-    "seen": 1795481248.7846608,
-    "ast_hash": "0796042c5c749373a5f42db35940bc65",
-    "semantic_hash": "0796042c5c749373a5f42db35940bc65"
+    "mtime": 1795495822.0186133,
+    "seen": 1795496940.7751007,
+    "ast_hash": "5e80fec0df69b237cc8a635de0cc1ff4",
+    "semantic_hash": "5e80fec0df69b237cc8a635de0cc1ff4"
   },
   "docs/brief.md": {
     "mtime": 1795408446.7862723,
@@ -138,40 +138,40 @@
     "semantic_hash": "dc6a2df07d6b6a0933decd2285aa0f9f"
   },
   "docs/plan.md": {
-    "mtime": 1795444782.3197196,
-    "seen": 1795481248.7846649,
-    "ast_hash": "77e2c2d4261d4a8290dfadb81fe6624f",
-    "semantic_hash": "77e2c2d4261d4a8290dfadb81fe6624f"
+    "mtime": 1795495893.7195947,
+    "seen": 1795496940.775102,
+    "ast_hash": "4b860bc9e504c5e70529e1edb02e18fd",
+    "semantic_hash": "4b860bc9e504c5e70529e1edb02e18fd"
   },
   "docs/plans/README.md": {
-    "mtime": 1795444782.3197196,
-    "seen": 1795481248.784666,
-    "ast_hash": "fa53c5ff9669668db212881d91fab520",
-    "semantic_hash": "fa53c5ff9669668db212881d91fab520"
+    "mtime": 1795495893.7452874,
+    "seen": 1795496940.775103,
+    "ast_hash": "ee49cc77f41ec6d7ba499bc7bf71458e",
+    "semantic_hash": "ee49cc77f41ec6d7ba499bc7bf71458e"
   },
   "docs/prd.md": {
-    "mtime": 1795445383.5965881,
-    "seen": 1795481248.7846675,
-    "ast_hash": "eafaef9a708afe3b389ebc272446e515",
-    "semantic_hash": "eafaef9a708afe3b389ebc272446e515"
+    "mtime": 1795495842.4584782,
+    "seen": 1795496940.7751043,
+    "ast_hash": "6f1f799499dc7bd4410ee5432c5c04da",
+    "semantic_hash": "6f1f799499dc7bd4410ee5432c5c04da"
   },
   "docs/progress.md": {
-    "mtime": 1795444782.3197196,
-    "seen": 1795481248.784669,
-    "ast_hash": "aa32869e402f5245f74050813b137d3f",
-    "semantic_hash": "aa32869e402f5245f74050813b137d3f"
+    "mtime": 1795495893.792391,
+    "seen": 1795496940.775105,
+    "ast_hash": "d428e20abaf908ef966a25822f2a9b3a",
+    "semantic_hash": "d428e20abaf908ef966a25822f2a9b3a"
   },
   "docs/research.md": {
-    "mtime": 1795408439.871579,
-    "seen": 1795481248.78467,
-    "ast_hash": "e8588d7b6dcd680948a912d83c247066",
-    "semantic_hash": "e8588d7b6dcd680948a912d83c247066"
+    "mtime": 1795495842.5451407,
+    "seen": 1795496940.7751062,
+    "ast_hash": "596a5f224403975ded9232bca6cc9ee6",
+    "semantic_hash": "596a5f224403975ded9232bca6cc9ee6"
   },
   "docs/security-checklist.md": {
-    "mtime": 1795408166.2357903,
-    "seen": 1795481248.7846718,
-    "ast_hash": "027877cda593db27e601fd64e968beb1",
-    "semantic_hash": "027877cda593db27e601fd64e968beb1"
+    "mtime": 1795495893.561155,
+    "seen": 1795496940.7751074,
+    "ast_hash": "8294a1223bf015d9d942f90e42fb2b9c",
+    "semantic_hash": "8294a1223bf015d9d942f90e42fb2b9c"
   },
   "docs/setup-prompt.md": {
     "mtime": 1795444782.3197196,
@@ -202,5 +202,17 @@
     "seen": 1795481248.7846785,
     "ast_hash": "17c41c06b7555cb676f1731cd70fa0d1",
     "semantic_hash": "17c41c06b7555cb676f1731cd70fa0d1"
+  },
+  "docs/adr/0007-gradebook-is-the-only-grade-store.md": {
+    "mtime": 1795490864.281492,
+    "seen": 1795496940.7750974,
+    "ast_hash": "bdb8ec02b45ccc9c9659ff29a308deeb",
+    "semantic_hash": "bdb8ec02b45ccc9c9659ff29a308deeb"
+  },
+  "docs/adr/0008-feedbackby-privacy-semantics.md": {
+    "mtime": 1795495814.1931381,
+    "seen": 1795496940.775099,
+    "ast_hash": "d7dde262814a372772f43858b7856741",
+    "semantic_hash": "d7dde262814a372772f43858b7856741"
   }
 }
