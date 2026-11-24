@@ -13,7 +13,7 @@ sequential).
 
 | Milestone | Entry point | Expected specs |
 |---|---|---|
-| M0 Baseline | pending CI green (no spec) | 0 |
+| M0 Baseline | done (no spec) | 0 |
 | M1 Teacher adds; enrolled users open | grill → spec | 1 |
 | M2 Learner submits an entry | grill → spec | 1 |
 | M3 Teacher reviews and gives feedback | grill → spec | 1 |
@@ -31,14 +31,14 @@ sequential).
 - [x] Minimal installable skeleton (version.php, db/access.php, db/install.xml, lib.php callbacks, lang)
 - [x] Installs via CLI (`admin/cli/install_database.php`) on Moodle 5.3
 - [x] One passing PHPUnit test in the plugin's testsuite
-- [ ] `version.php`: add `$plugin->release` (ruled 2026-11-24: lands with the fix-baseline-CI
+- [x] `version.php`: `$plugin->release = '0.1.0'` added (landed with the fix-baseline-CI
       PR; `MATURITY_ALPHA` already set)
-- [ ] `.github/workflows/moodle-ci.yml` exists (moodle-plugin-ci, 5.3 × PHP 8.3/8.4 ×
-      **pgsql+mariadb**, full 2×2 matrix = 4 jobs) — **not ticked until the
-      fix-baseline-CI PR is green on every job**, the Validating step excepted
-      (`continue-on-error: true` until #2; Code Checker stays strict; ruled 2026-11-24)
+- [x] `.github/workflows/moodle-ci.yml` exists (moodle-plugin-ci, 5.3 × PHP 8.3/8.4 ×
+      **pgsql+mariadb**, full 2×2 matrix = 4 jobs) — **green on every job**, the
+      Validating step excepted (`continue-on-error: true` until #2; Code Checker stays
+      strict; run 45338573304, 2026-11-24)
 **Done when:** local install + PHPUnit green; **fix-baseline-CI PR green on all four
-matrix jobs**, the Validating step excepted (#2).
+matrix jobs**, the Validating step excepted (#2). — **Met 2026-11-24** (run 45338573304).
 
 ## M1 — Teacher adds the activity; enrolled users open it
 - [ ] Generators: `tests/generator/lib.php` (PHPUnit) +

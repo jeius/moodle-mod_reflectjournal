@@ -1,12 +1,13 @@
 # Reflection Journal: Progress
 
-_Last updated: 2026-11-24 (architecture review round 3 approved; docs sync)_
+_Last updated: 2026-11-24 (M0 complete — baseline CI green on all four jobs)_
 
 ## Current milestone
 
-**M0 — Baseline: pending CI green** — branch `docs/architecture-review` pushed
-2026-11-24; M0 is not ticked complete until CI has run green on PostgreSQL **and**
-MariaDB. Local install + PHPUnit already green.
+**M0 — Baseline: complete** (2026-11-24). The `fix baseline CI` PR ran green on
+**all four matrix jobs** (php 8.3/8.4 × pgsql/mariadb, run 45338573304); the Validating
+step carries `continue-on-error: true` until M1 lands the three entry files (#2). Docs
+work (architecture round 3, ADR-0007/0008, plan re-slice approval) merged as PR #4.
 
 ## Done
 
@@ -27,6 +28,9 @@ MariaDB. Local install + PHPUnit already green.
 - Workflow restructured around `docs/specs/` + `docs/plans/` (ADR-0006, amended
   same day to nest them under `docs/`): `docs/task-template.md` and the superseded
   `docs/tasks/` prompts removed, `docs/workflow.md` added, AGENTS.md rewritten.
+- M0 closed out (2026-11-24): plan re-slice approved and merged (PR #4); baseline CI
+  fixed and green on all four jobs (PR #5, run 45338573304) — `CoversNothing` on the
+  base test, Validating `continue-on-error` until #2, `$plugin->release = '0.1.0'`.
 
 ## Next
 
