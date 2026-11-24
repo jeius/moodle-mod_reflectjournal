@@ -1,206 +1,206 @@
 {
   ".github/workflows/moodle-ci.yml": {
     "mtime": 1795408579.8585975,
-    "seen": 1795443991.7469368,
+    "seen": 1795481248.7846208,
     "ast_hash": "a8bea4db66df0210d75e6645798e1504",
     "semantic_hash": "a8bea4db66df0210d75e6645798e1504"
   },
   "db/access.php": {
     "mtime": 1795409579.4757473,
-    "seen": 1795443991.746951,
+    "seen": 1795481248.7846293,
     "ast_hash": "0242149c7e4c3a7dcd837fc8ac92ad66",
     "semantic_hash": "0242149c7e4c3a7dcd837fc8ac92ad66"
   },
   "docker/env.sh": {
     "mtime": 1795408515.7528758,
-    "seen": 1795443991.7469547,
+    "seen": 1795481248.7846327,
     "ast_hash": "092944fe6fa3985650fdcd8cb21c706d",
     "semantic_hash": "092944fe6fa3985650fdcd8cb21c706d"
   },
   "lang/en/reflectjournal.php": {
     "mtime": 1795409579.471524,
-    "seen": 1795443991.7469566,
+    "seen": 1795481248.7846344,
     "ast_hash": "a32a395bbd0948fa16617ffbc7f3d269",
     "semantic_hash": "a32a395bbd0948fa16617ffbc7f3d269"
   },
   "lib.php": {
     "mtime": 1795409586.8144228,
-    "seen": 1795443991.7469585,
+    "seen": 1795481248.7846365,
     "ast_hash": "98d79f12286f253cb243f0d01bb12ba4",
     "semantic_hash": "98d79f12286f253cb243f0d01bb12ba4"
   },
   "tests/reflectjournal_base_test.php": {
     "mtime": 1795409596.0034096,
-    "seen": 1795443991.7469602,
+    "seen": 1795481248.7846382,
     "ast_hash": "3bd7700928740012604e1199a1f26a1d",
     "semantic_hash": "3bd7700928740012604e1199a1f26a1d"
   },
   "version.php": {
     "mtime": 1795409579.463077,
-    "seen": 1795443991.7469616,
+    "seen": 1795481248.7846398,
     "ast_hash": "fd699668623a8b46d3946b7bb6a65c13",
     "semantic_hash": "fd699668623a8b46d3946b7bb6a65c13"
   },
   "AGENTS.md": {
-    "mtime": 1795443587.7990167,
-    "seen": 1795443991.7469633,
-    "ast_hash": "e82ee9a29c63b8bc49156ac5ca69d49c",
-    "semantic_hash": "e82ee9a29c63b8bc49156ac5ca69d49c"
+    "mtime": 1795476220.4440997,
+    "seen": 1795481248.784641,
+    "ast_hash": "459fcdb161b2211950f837fb19d5c350",
+    "semantic_hash": "459fcdb161b2211950f837fb19d5c350"
   },
   "CLAUDE.md": {
     "mtime": 1795407535.519636,
-    "seen": 1795443991.7469652,
+    "seen": 1795481248.7846422,
     "ast_hash": "5c27369b226fcf2be8a6cfe52224e767",
     "semantic_hash": "5c27369b226fcf2be8a6cfe52224e767"
   },
   "GLOSSARY.md": {
     "mtime": 1795408204.6829412,
-    "seen": 1795443991.7469673,
+    "seen": 1795481248.784644,
     "ast_hash": "59d40e1c80418ec4c5d71e411a03ea55",
     "semantic_hash": "59d40e1c80418ec4c5d71e411a03ea55"
   },
   "README.md": {
     "mtime": 1795408562.6712062,
-    "seen": 1795443991.7469687,
+    "seen": 1795481248.7846453,
     "ast_hash": "a183186b9eb8b63c970161ad5d79ceda",
     "semantic_hash": "a183186b9eb8b63c970161ad5d79ceda"
   },
   "docker/README.md": {
     "mtime": 1795408525.7362897,
-    "seen": 1795443991.7469707,
+    "seen": 1795481248.784647,
     "ast_hash": "10ee9dd3eae84e1ecc469b415d2c3d73",
     "semantic_hash": "10ee9dd3eae84e1ecc469b415d2c3d73"
   },
   "docs/adr/0001-record-architecture-decisions.md": {
     "mtime": 1795408130.4130464,
-    "seen": 1795443991.7469716,
+    "seen": 1795481248.7846482,
     "ast_hash": "11e9029c06daa40affa1dd535ac15866",
     "semantic_hash": "11e9029c06daa40affa1dd535ac15866"
   },
   "docs/adr/0002-target-moodle-5-3-lts.md": {
     "mtime": 1795408130.4383323,
-    "seen": 1795443991.7469726,
+    "seen": 1795481248.7846496,
     "ast_hash": "1109a39d03c9d07851f04f51de10cb9d",
     "semantic_hash": "1109a39d03c9d07851f04f51de10cb9d"
   },
   "docs/adr/0003-repo-layout.md": {
     "mtime": 1795408480.7666712,
-    "seen": 1795443991.7469735,
+    "seen": 1795481248.784651,
     "ast_hash": "6a7c620d8034f0b39b89183adff4eddf",
     "semantic_hash": "6a7c620d8034f0b39b89183adff4eddf"
   },
   "docs/adr/0004-plugin-mount-bind-mount.md": {
     "mtime": 1795409690.5430503,
-    "seen": 1795443991.7469742,
+    "seen": 1795481248.7846525,
     "ast_hash": "6be970d733c14bef55732ac7f34e6dc3",
     "semantic_hash": "6be970d733c14bef55732ac7f34e6dc3"
   },
   "docs/adr/0005-testing-approach.md": {
     "mtime": 1795408491.8817632,
-    "seen": 1795443991.7469752,
+    "seen": 1795481248.784654,
     "ast_hash": "04bb9d5a7e3e62a3ad9e295f47c27bf6",
     "semantic_hash": "04bb9d5a7e3e62a3ad9e295f47c27bf6"
   },
+  "docs/adr/0006-spec-and-plan-workflow.md": {
+    "mtime": 1795444782.3197196,
+    "seen": 1795481248.784655,
+    "ast_hash": "c840ac82c5c42dc7578b117b339a7bdd",
+    "semantic_hash": "c840ac82c5c42dc7578b117b339a7bdd"
+  },
   "docs/agents/domain.md": {
     "mtime": 1795408209.772466,
-    "seen": 1795443991.7469761,
+    "seen": 1795481248.784657,
     "ast_hash": "00bededcb4486406f018b39e9902c610",
     "semantic_hash": "00bededcb4486406f018b39e9902c610"
   },
   "docs/agents/issue-tracker.md": {
-    "mtime": 1795443587.8030167,
-    "seen": 1795443991.7469783,
+    "mtime": 1795444782.3197196,
+    "seen": 1795481248.784658,
     "ast_hash": "f63729221c974fe91b6ab6131d71370d",
     "semantic_hash": "f63729221c974fe91b6ab6131d71370d"
   },
   "docs/agents/triage-labels.md": {
     "mtime": 1795408209.772466,
-    "seen": 1795443991.74698,
+    "seen": 1795481248.7846591,
     "ast_hash": "9918a4051db590bde5644c39db5194f4",
     "semantic_hash": "9918a4051db590bde5644c39db5194f4"
   },
   "docs/architecture.md": {
-    "mtime": 1795411637.315497,
-    "seen": 1795443991.7469814,
+    "mtime": 1795445383.5965881,
+    "seen": 1795481248.7846608,
     "ast_hash": "0796042c5c749373a5f42db35940bc65",
     "semantic_hash": "0796042c5c749373a5f42db35940bc65"
   },
   "docs/brief.md": {
     "mtime": 1795408446.7862723,
-    "seen": 1795443991.746983,
+    "seen": 1795481248.7846634,
     "ast_hash": "dc6a2df07d6b6a0933decd2285aa0f9f",
     "semantic_hash": "dc6a2df07d6b6a0933decd2285aa0f9f"
   },
   "docs/plan.md": {
-    "mtime": 1795443587.8030167,
-    "seen": 1795443991.7469854,
+    "mtime": 1795444782.3197196,
+    "seen": 1795481248.7846649,
     "ast_hash": "77e2c2d4261d4a8290dfadb81fe6624f",
     "semantic_hash": "77e2c2d4261d4a8290dfadb81fe6624f"
   },
+  "docs/plans/README.md": {
+    "mtime": 1795444782.3197196,
+    "seen": 1795481248.784666,
+    "ast_hash": "fa53c5ff9669668db212881d91fab520",
+    "semantic_hash": "fa53c5ff9669668db212881d91fab520"
+  },
   "docs/prd.md": {
-    "mtime": 1795411346.2092593,
-    "seen": 1795443991.746987,
+    "mtime": 1795445383.5965881,
+    "seen": 1795481248.7846675,
     "ast_hash": "eafaef9a708afe3b389ebc272446e515",
     "semantic_hash": "eafaef9a708afe3b389ebc272446e515"
   },
   "docs/progress.md": {
-    "mtime": 1795443661.5190032,
-    "seen": 1795443991.7469888,
+    "mtime": 1795444782.3197196,
+    "seen": 1795481248.784669,
     "ast_hash": "aa32869e402f5245f74050813b137d3f",
     "semantic_hash": "aa32869e402f5245f74050813b137d3f"
   },
   "docs/research.md": {
     "mtime": 1795408439.871579,
-    "seen": 1795443991.74699,
+    "seen": 1795481248.78467,
     "ast_hash": "e8588d7b6dcd680948a912d83c247066",
     "semantic_hash": "e8588d7b6dcd680948a912d83c247066"
   },
   "docs/security-checklist.md": {
     "mtime": 1795408166.2357903,
-    "seen": 1795443991.7469912,
+    "seen": 1795481248.7846718,
     "ast_hash": "027877cda593db27e601fd64e968beb1",
     "semantic_hash": "027877cda593db27e601fd64e968beb1"
   },
   "docs/setup-prompt.md": {
-    "mtime": 1795443587.8030167,
-    "seen": 1795443991.7469919,
+    "mtime": 1795444782.3197196,
+    "seen": 1795481248.784673,
     "ast_hash": "91b6d7ce2e846ebd7de57766d934f0ed",
     "semantic_hash": "91b6d7ce2e846ebd7de57766d934f0ed"
   },
+  "docs/specs/README.md": {
+    "mtime": 1795444782.3197196,
+    "seen": 1795481248.7846744,
+    "ast_hash": "efe1ba57950ff6bdc8dfd5ee4c532047",
+    "semantic_hash": "efe1ba57950ff6bdc8dfd5ee4c532047"
+  },
   "docs/tech-stack.md": {
     "mtime": 1795408480.7371674,
-    "seen": 1795443991.7469928,
+    "seen": 1795481248.7846756,
     "ast_hash": "1d47cc6b2ef841d57409486f03e7e8fd",
     "semantic_hash": "1d47cc6b2ef841d57409486f03e7e8fd"
   },
   "docs/workflow.md": {
-    "mtime": 1795443587.7990167,
-    "seen": 1795443991.7469938,
+    "mtime": 1795444782.3197196,
+    "seen": 1795481248.784677,
     "ast_hash": "7f4743eec8976b423cb41f5863d9288f",
     "semantic_hash": "7f4743eec8976b423cb41f5863d9288f"
   },
   "pix/icon.svg": {
     "mtime": 1795408552.7603767,
-    "seen": 1795443991.7469947,
+    "seen": 1795481248.7846785,
     "ast_hash": "17c41c06b7555cb676f1731cd70fa0d1",
     "semantic_hash": "17c41c06b7555cb676f1731cd70fa0d1"
-  },
-  "docs/adr/0006-spec-and-plan-workflow.md": {
-    "mtime": 1795444782.3197196,
-    "seen": 1795444998.623793,
-    "ast_hash": "c840ac82c5c42dc7578b117b339a7bdd",
-    "semantic_hash": "c840ac82c5c42dc7578b117b339a7bdd"
-  },
-  "docs/plans/README.md": {
-    "mtime": 1795444782.3197196,
-    "seen": 1795444998.6237948,
-    "ast_hash": "fa53c5ff9669668db212881d91fab520",
-    "semantic_hash": "fa53c5ff9669668db212881d91fab520"
-  },
-  "docs/specs/README.md": {
-    "mtime": 1795444782.3197196,
-    "seen": 1795444998.6237957,
-    "ast_hash": "efe1ba57950ff6bdc8dfd5ee4c532047",
-    "semantic_hash": "efe1ba57950ff6bdc8dfd5ee4c532047"
   }
 }
