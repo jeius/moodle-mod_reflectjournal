@@ -9,6 +9,7 @@ grade. Core-API-first: every mechanism maps to a Moodle core API (ledger in
 Read first: `docs/progress.md` → `docs/plan.md` (milestones M0–M9 = GitHub milestones).
 Design: `docs/architecture.md`; decisions: `docs/adr/`; terms: `GLOSSARY.md`;
 workflow + one-skill-per-phase rationale: `docs/workflow.md`.
+Knowledge graph of docs + code: `graphify-out/` — see *Knowledge graph* below.
 
 ## Workflow preferences (overrides on skill defaults — why: ADR-0006)
 - Specs: `docs/specs/NNN-slug.md` is canonical (`docs/specs/README.md`). `/to-spec` writes the
@@ -84,6 +85,21 @@ One-time setup (pinned moodle-docker clone etc.): `docker/README.md`.
   `moodle-external-api-development` (future web-service phase only); `browser-use`
   plugin (UI verification + M9 recording); `github` plugin (PRs/issues);
   `documents`/`pdf`/`presentations` (portfolio artifacts).
+
+## Knowledge graph (graphify snapshot of docs + code: `graphify-out/`)
+- `graphify-out/` is committed and built by the `graphify` skill
+  (`.agents/skills/graphify/`): `graph.html` (interactive map), `GRAPH_REPORT.md`
+  (communities, hubs, cross-doc bridges), `graph.json` (raw data).
+- For questions that span documents — what a concept touches, how two decisions
+  connect — query it before grepping: `graphify query "<question>"`;
+  `graphify affected "<node>"` (what references it); `graphify path "A" "B" --undirected`;
+  `graphify explain "<node>"`. A single known symbol or file is still faster with `grep`.
+- It is a snapshot and can lag the working tree: each node names its source file —
+  confirm there before relying on an answer. The source wins.
+- Refresh only when the user asks, with `/graphify . --update`: incremental (changed code
+  re-parsed free, changed docs re-read through the LLM), and it always scans the root saved
+  in `graphify-out/.graphify_root` — keep that the repo root. `graph.json` is rewritten
+  whole each time: a full-file diff is normal, not churn.
 
 ## Agent skills
 ### Issue tracker

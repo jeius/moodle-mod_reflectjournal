@@ -1,10 +1,12 @@
 # Reflection Journal: Progress
 
-_Last updated: 2026-11-23 (M0 session + workflow restructure — `docs/workflow.md`)_
+_Last updated: 2026-11-24 (architecture review round 3 approved; docs sync)_
 
 ## Current milestone
 
-**M0 — Baseline: complete** (pending CI-green confirmation on first push).
+**M0 — Baseline: pending CI green** — branch `docs/architecture-review` pushed
+2026-11-24; M0 is not ticked complete until CI has run green on PostgreSQL **and**
+MariaDB. Local install + PHPUnit already green.
 
 ## Done
 
@@ -38,8 +40,8 @@ above (the removed `docs/tasks/` prompts added no scope beyond it).
   before its next run — expected, just re-run it.
 - PHPUnit/Behat CLI live under `public/admin/tool/...` in Moodle 5.x (AGENTS.md has it).
 - phpdoc/validate/mustache/grunt need a booted core → verified in CI only, not locally.
-- moodledev.io per-API doc pages are mid-migration (404s); use the APIs index +
-  `docs/research.md` links.
+- moodledev.io per-API doc pages are live (re-checked 2026-11-24; 378 URLs in the
+  sitemap) — cite the versioned `/docs/5.3/` paths; index: `docs/research.md`.
 - Host ports 80/8080/5432/3306 are taken by other projects → env web port is 8000.
 - Never `docker down` (DB has no volume; its data lives in the container fs, which
   `stop` keeps and `down` destroys). Reset path if ever needed: `up`, then re-run
