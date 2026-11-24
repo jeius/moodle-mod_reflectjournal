@@ -26,5 +26,6 @@ defined('MOODLE_INTERNAL') || die();
 
 $plugin->component = 'mod_reflectjournal';
 $plugin->version = 2026112300;
+$plugin->release = '0.1.0';
 $plugin->requires = 2026100500; // Moodle 5.3.0 (LTS).
 $plugin->maturity = MATURITY_ALPHA;

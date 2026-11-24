@@ -33,6 +33,7 @@ namespace mod_reflectjournal;
  * @copyright  2026 Jeius
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
+#[\PHPUnit\Framework\Attributes\CoversNothing]
 final class reflectjournal_base_test extends \advanced_testcase {
     /**
      * The plugin is installed with a recorded version.
