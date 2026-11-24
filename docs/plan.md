@@ -44,6 +44,8 @@ counts below are per milestone, not file numbers.
 - [ ] `entries` table + `deadline`/`grade` columns via upgrade.php + savepoint
 - [ ] Learner entry form (rich-text editor, File API draft areas wired, no attachments UI yet)
 - [ ] Deadline semantics: editing locked after deadline (teachers exempt); calendar event
+- [ ] Calendar callbacks in `lib.php`: `mod_reflectjournal_core_calendar_provide_event_action()`,
+      `mod_reflectjournal_core_calendar_event_timestart_updated()`, `reflectjournal_refresh_events()`
 - [ ] Activity dates surfaced on course page
 **Done when:** learner submits/edits/gets locked exactly at the deadline; PHPUnit + Behat cover it.
 
@@ -57,10 +59,14 @@ counts below are per milestone, not file numbers.
 - [ ] Gradebook callbacks (`*_grade_item_update`, `*_update_grades`), none/points/scale
 - [ ] Teacher feedback per entry + feedback event (any time, incl. after deadline)
 - [ ] Custom completion rule `completionsubmit` + active-rule descriptions
+- [ ] Course reset: `reflectjournal_reset_course_form_definition()`/`…_defaults()`,
+      `reflectjournal_reset_userdata()` (entries + files), `grade_item_update($instance, 'reset')`
 **Done when:** grade appears in gradebook; completion ticks on submit; grading path has tests.
 
 ## M5 — Events, logging, privacy API
 - [ ] Event classes (entry_submitted/updated, feedback_added) + tests asserting triggers
+- [ ] Viewed events: `course_module_viewed` (view.php) and
+      `course_module_instance_list_viewed` (index.php), extending the core events
 - [ ] Privacy provider: metadata, export, delete (entries + fileareas)
 **Done when:** privacy tests pass (export/delete phpunit); events logged.
 
@@ -70,7 +76,8 @@ counts below are per milestone, not file numbers.
 **Done when:** backup then restore round-trips config and user data (test).
 
 ## M7 — PHPUnit and Behat coverage
-- [ ] Fill gaps per feature area; generator (`tests/generator.php`) for instances+entries
+- [ ] Fill gaps per feature area; generator (`tests/generator/lib.php` + the Behat
+      generator beside it) for instances+entries
 - [ ] Behat: teacher flow + learner flow end-to-end; every capability covered by a test
 **Done when:** suites run green locally and in CI (both DBs) without skips.
 

@@ -13,7 +13,7 @@ Reviewer: agent walks it before claiming done; human spot-checks. Any "no" = fix
 ## Input handling
 - [ ] All request input via `required_param()` / `optional_param()` with explicit `PARAM_*`; never `$_GET/$_POST/$_REQUEST` (or `optional_param_array` with `PARAM_INT` etc. for arrays).
 - [ ] IDs typed `PARAM_INT`; text `PARAM_TEXT`/`PARAM_RAW` only where justified; `PARAM_ALPHA`, `PARAM_ALPHANUMEXT` for filenames/areas.
-- [ ] Editor/file content cleaned at save (`format_text`/`file_postprocess` usage) with the owner's format and trusted rules decided consciously.
+- [ ] Editor text is stored raw and cleaned at output via `format_text()` (owner's format; `file_rewrite_pluginfile_urls()` before it once files exist) — 5.3 editors store text uncleaned — with trusted/`clean` options decided consciously.
 
 ## SQL & data access
 - [ ] All SQL through `$DB->get_records('reflectjournal_…', [...])` or explicit placeholders (`:param` / `?`); no string interpolation of user input.

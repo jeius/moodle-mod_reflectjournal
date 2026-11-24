@@ -44,7 +44,7 @@ Global Constraints must carry these, and every task must satisfy them:
 
 1. **Test-first, always.** Every feature task starts with a failing test:
    PHPUnit for logic (use the plugin's PHPUnit data generator for instances and
-   entries — `tests/generator.php` is finalized in M7, so earlier plans create or
+   entries — `tests/generator/lib.php` is finalized in M7, so earlier plans create or
    extend it as their first need requires), Behat only for UI journeys. Run
    commands are in `AGENTS.md`; watch the test fail before writing
    implementation code (`superpowers:test-driven-development`).

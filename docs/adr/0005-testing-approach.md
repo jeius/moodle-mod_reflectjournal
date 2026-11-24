@@ -21,7 +21,9 @@ moodle-plugin-ci 4.5.11 (https://moodlehq.github.io/moodle-plugin-ci/CHANGELOG.h
   steps: phplint, phpmd (advisory), phpcs (moodle-cs, max-warnings 0), phpdoc, validate,
   savepoints, mustache, grunt, phpunit, behat (chrome profile).
 - The plugin's own tests live in `tests/` (PHPUnit) and `tests/behat/` (Gherkin);
-  a `tests/generator.php` feeds both (M7).
+  `tests/generator/lib.php` (PHPUnit) plus the Behat generator beside it
+  (`tests/generator/behat_mod_reflectjournal_generator.php`) feed both (M7; both
+  planned, neither exists yet).
 
 ## Alternatives considered
 
