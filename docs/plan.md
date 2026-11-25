@@ -5,6 +5,13 @@ browser and tests+lint green, with `docs/progress.md` updated. GitHub milestones
 **M0–M9** mirror this file; **one PR per issue**; workflow: `docs/workflow.md`
 (decide → spec → tickets → plan → execute → PR → merge).
 
+## Status (2026-11-25)
+
+**M1–M9 are paused** until the larger Moodle demo site ships. That site is
+maintained in a separate private repository and includes this plugin as one
+component. Work resumes at **M1–M2** — a teacher adds the activity; a learner submits
+an entry. Every milestone keeps its scope and done-condition.
+
 ## Milestone entry points (re-sliced 2026-11-24)
 
 `/grill-with-docs` → `/to-spec` for every milestone; escalate to `/wayfinder` only if
