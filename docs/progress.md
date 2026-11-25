@@ -1,6 +1,6 @@
 # Reflection Journal: Progress
 
-_Last updated: 2026-11-24 (M0 complete — baseline CI green on all four jobs)_
+_Last updated: 2026-11-25 (M1–M9 paused until the larger demo site ships; M0 complete)_
 
 ## Current milestone
 
@@ -34,9 +34,11 @@ work (architecture round 3, ADR-0007/0008, plan re-slice approval) merged as PR 
 
 ## Next
 
-Start M1 via the workflow (`docs/workflow.md`): `/grill-with-docs` on the skeleton
-activity → `/to-spec` → small docs PR → `/to-tickets`. Scope: the M1 checklist
-above (the removed `docs/tasks/` prompts added no scope beyond it).
+M1–M9 are **paused (2026-11-25)** until the larger Moodle demo site (maintained in a
+separate private repository) ships. Work then resumes at M1 via the workflow
+(`docs/workflow.md`), as before: `/grill-with-docs` on the M1 slice → `/to-spec` →
+small docs PR → `/to-tickets`. Scope: the M1 section of `docs/plan.md` (the removed
+`docs/tasks/` prompts added no scope beyond it).
 
 ## Known issues / notes for next session
 

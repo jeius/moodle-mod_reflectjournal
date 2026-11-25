@@ -19,6 +19,11 @@ deadline; teachers give feedback and an optional gradebook grade.
 - **Hiring reviewers / Moodle developers** (primary — they read the code, docs, CI).
 - **Teachers and learners** (the demo's users; UX must be credible, not throwaway).
 
+**Note 2026-11-25:** the plugin is now also a component of a larger Moodle demo site
+maintained in a separate private repository, so a non-technical evaluator looking at
+a working LMS joins hiring reviewers as an audience. Scope and success criteria for
+this plugin are unchanged.
+
 ## Scope
 
 **Must have (v1):**
